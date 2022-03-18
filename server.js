@@ -23,10 +23,11 @@ rollbar.log("Hello world!");
 
 app.get('/api/robots', (req, res) => {
     try {
-        rollbar.log("Hello world!");
+        rollbar.log("Requested the Robots");
         res.status(200).send(bots)
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
+        rollbar.error("ERROR GETTING BOTS");
         res.sendStatus(400)
     }
 })
@@ -88,6 +89,7 @@ app.get('/api/player', (req, res) => {
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
+    rollbar.info('Main Page was accessed')
 
 })
 
