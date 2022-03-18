@@ -12,13 +12,13 @@ app.use(express.json())
 // include and initialize the rollbar library with your access token
 var Rollbar = require("rollbar");
 var rollbar = new Rollbar({
-  accessToken: '2310e4998dfd4dd78153fd1f3702bb65',
+  accessToken: 'ab95ab83fd80487c80da04603d3c36de',
   captureUncaught: true,
   captureUnhandledRejections: true
 });
 
 // record a generic message and send it to Rollbar
-rollbar.error("defaulss error");
+rollbar.log("Hello world!");
 
 
 app.get('/api/robots', (req, res) => {
